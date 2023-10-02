@@ -8,8 +8,6 @@
         </li>
         
 
-@auth
-{{auth() ->user() -> name}}
-@endauth
 
+        {{Auth::guard('web')->user()->name}}
 @endsection

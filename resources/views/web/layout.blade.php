@@ -9,7 +9,9 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Theme CSS -->
+<link rel="stylesheet" href="web/css/bootstrap.min.css">
 <link rel="stylesheet" href="web/css/theme.min.css">
+<link rel="stylesheet" href="web/css/font.css">
  
 	  
 <style>
@@ -136,5 +138,7 @@ padding-right: 2.375rem;
 
   <script src="web/js/jquery.min.js"></script>
 <script src="web/js/bootstrap.bundle.min.js"></script>
+ <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js'></script>
+
 </body>
 </html>

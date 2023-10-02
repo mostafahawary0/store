@@ -26,7 +26,7 @@
 
 <div class="form-group has-icon">
 <span class="fa fa-search d-block"></span>
-<input type="text" class="form-control" placeholder="ابحث عن منتج هنا ">
+<input type="text" class="form-control" style="font-family:font-m;" placeholder="ابحث عن منتج هنا ">
 </div>
 
 </div>
@@ -86,33 +86,43 @@
 		  
           <div class="offcanvas-body">
  
+          <style>
+.nav-link
+{
+  font-family: 'font';
+  font-size:20px;
+}
+.nav-item {
+padding-left:20px
+}
+</style>
      
              <div class="col-lg-12" style="direction: rtl; text-align:right;">
               <ul class="navbar-nav align-items-center ">
 			  
                 <li class="nav-item w-100 w-lg-auto">
-                  <a class="nav-link" href="{{route('home')}}"> Home </a>
+                  <a class="nav-link" href="{{route('home')}}" > الرئيسية </a>
                 </li>
 				
                 <li class="nav-item w-100 w-lg-auto">
-                  <a class="nav-link" href="#"> About us </a>
+                  <a class="nav-link" href="#"> من نحن </a>
                 </li>
 			
 				<li class="nav-item w-100 w-lg-auto">
-                  <a class="nav-link" href="#"> section 1</a>
+                  <a class="nav-link" href="#"> القسم الاول</a>
                 </li>
 			
 				<li class="nav-item w-100 w-lg-auto">
-                  <a class="nav-link" href="#"> section 2</a>
+                  <a class="nav-link" href="#"> القسم الثاني </a>
                 </li>
 
 				<li class="nav-item w-100 w-lg-auto">
-                  <a class="nav-link" href="#"> section 3</a>
+                  <a class="nav-link" href="#"> القسم الثالث</a>
                 </li>
 									
                 <li class="nav-item dropdown w-100 w-lg-auto">
                   <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Shop <i class="fa fa-angle-down"></i>
+                    تسوق <i class="fa fa-angle-down"></i>
                   </a>
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#"> Page </a></li>
@@ -122,7 +132,7 @@
   			     </li>
 			
 				<li class="nav-item w-100 w-lg-auto">
-                  <a class="nav-link" href="#"> Contact us  </a>
+                  <a class="nav-link" href="#"> أتصل بنا  </a>
                 </li>
 				
               </ul>
