@@ -52,6 +52,14 @@
 
 @endif
 
+ 
+@php 
+use App\Models\section;
+$value = section::get() 
+@endphp
+
+<h4 style="color:#fff;"> Total of sections : {{$value->count()}} </h4>
+
                       <table class="table mb-0 table-striped">
                         <thead>
                           <tr>

@@ -15,7 +15,8 @@ class SectionController extends Controller
         $sections = Section::paginate(10);
         return view('dashboard.section.index',compact('sections'));
     }
-
+ 
+    
     /**
      * Show the form for creating a new resource.
      */
@@ -105,8 +106,15 @@ class SectionController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy($id)
-    {
-       $ss = $product->image;
-        return $ss;
+    {        
+        $section= section::findorFail($id)->delete();
+        if(!$section){
+            return redirect(route('section.index'))->with("error"," error");
+        }
+        else
+        {
+        return redirect(route('section.index'))->with("success","Saved successfully");
+        }
+
     }
-}
+} 

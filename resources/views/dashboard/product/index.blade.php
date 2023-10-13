@@ -51,7 +51,12 @@
 <div class="alert alert-success">{{session('success')}}</div>
 
 @endif
+@php 
+use App\Models\product;
+$value = product::get() 
+@endphp
 
+<h4 style="color:#fff;"> Total of Products : {{$value->count()}} </h4>
                       <table class="table mb-0 table-striped">
                         <thead>
                           <tr>

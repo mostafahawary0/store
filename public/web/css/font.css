@@ -19,4 +19,31 @@
     src: url(NotoSansArabic_ExtraCondensed-SemiBold.ttf);
   }
  
+ 
+  @font-face {
+    font-family: 'cairo1';
+    src: url(cairo/Cairo-Black.ttf);
+  }
    
+@font-face {
+    font-family: 'cairo2';
+    src: url(cairo/Cairo-Light.ttf);
+  }
+ 
+@font-face {
+    font-family: 'cairo';
+    src: url(cairo/Cairo-Medium.ttf);
+  }
+ 
+ 
+@font-face {
+    font-family: 'cairo3';
+    src: url(cairo/Cairo-ExtraBold.ttf);
+  }
+ 
+ 
+@font-face {
+    font-family: 'cairo';
+    src: url(cairo/Cairo-Medium.ttf);
+  }
+ 

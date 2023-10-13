@@ -6,6 +6,8 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\orderController;
+use App\Http\Controllers\messageController;
 
  
   //dashboard
@@ -14,8 +16,6 @@ use App\Http\Controllers\SettingController;
 // login dashboard
     Route::get('/' , [AdminAuthController::class,'login2'])->name('dashboard');
     Route::post('/' , [AdminAuthController::class,'loginpost2'])->name('login.dashboard');
-    Route::get('/reg' , [AdminAuthController::class,'reg'])->name('reg');
-    Route::post('/reg' , [AdminAuthController::class,'regpost'])->name('reg.post');
     Route::get('/logoutdashboard' , [AdminAuthController::class,'logout'])->name('logoutdashboard');
 
     
@@ -47,7 +47,18 @@ use App\Http\Controllers\SettingController;
          Route::get('/product/images/{id}' , [ProductController::class,'editimages'])->name('images.product');
          Route::put('/product/images/{id}' , [ProductController::class,'uploadimages'])->name('upload.images');
          Route::delete('/product/images/{id}' , [ProductController::class,'destroyimages'])->name('delete.images');
-          
+         
+
+          // orders
+         Route::get('/orders' , [orderController::class,'showOrder'])->name('show.order'); 
+         Route::get('/order-page/{id}' , [orderController::class,'oneOrder'])->name('one.order'); 
+         Route::delete('/orders/{id}' , [orderController::class,'orderDestroy'])->name('delete.order');
+
+           // messages
+    Route::get('/inbox' , [messageController::class,'show'])->name('show.inbox'); 
+    Route::get('/message/{id}' , [messageController::class,'one'])->name('one.message'); 
+    Route::delete('/inbox/{id}' , [messageController::class,'messageDestroy'])->name('message.destroy');
+
 
     });
     

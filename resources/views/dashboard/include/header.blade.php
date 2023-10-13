@@ -25,54 +25,87 @@
             <li class="list-inline-item dropdown px-lg-2"><a class="nav-link text-reset px-1 px-lg-0" id="navbarDropdownMenuLink1" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           
             <i class="fa fa-envelope" aria-hidden="true" style="font-size:20px;"></i>
-             <span class="badge bg-dash-color-1">5</span></a>
+              @php 
+use App\Models\message;
+$messages = message::where('noti','=','noti')->get() 
+@endphp
 
-              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink1">
-            
-                    <li>
-                  <a class="dropdown-item d-flex align-items-center" href="#">
-                    <div class="ms-3">   <strong class="d-block">Nadia Halsey</strong>
-                    <span class="d-block text-xs">lorem ipsum dolor sit amit</span>
-                    <small class="d-block">9:30am</small>
-                  </div>
-                  </a>
-                  </li>
- 
-               
-                <li>
-                  <a class="dropdown-item text-center message" href="#"> 
-                  <strong>See All Messages <i class="fas fa-angle-right ms-1"></i></strong>
-                </a>
-              </li>
-              </ul>
-            </li>
+@if($messages->count() == 0)
+
+@else
+<span class="badge bg-dash-color-1">{{$messages->count()}}</span> 
+@endif
+
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark" style="overflow-y:scroll; height:300px;"
+        aria-labelledby="navbarDropdownMenuLink1">
+        @foreach(\App\Models\message::where('noti','=','noti')->get()  as $message)
+              <li>
+            <a class="dropdown-item d-flex align-items-center" href="{{route('one.message',$message->id)}}">
+              <div class="ms-3">   <strong class="d-block">New message</strong>
+              
+              <span class="d-block text-xs"> <span style="color:#fff;"> Form : </span> {{$message->name}}</span>
+              <small class="d-block">
+              {{ \Carbon\Carbon::parse($message->updated_at)->diffForHumans() }}
+        </small>
+      </div>
+      </a>
+      </li>
+            @endforeach
+          
+          <li>
+            <a class="dropdown-item text-center message" href="{{route('show.inbox')}}"> 
+            <strong>See All Messages  </strong>
+          </a>
+        </li>
+        </ul>
+      </li>
             <!-- Tasks dropdown                   -->
-            <li class="list-inline-item dropdown px-lg-2"><a class="nav-link text-reset px-1 px-lg-0" id="navbarDropdownMenuLink2" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <li class="list-inline-item dropdown px-lg-2">
+              
+            <a class="nav-link text-reset px-1 px-lg-0" id="navbarDropdownMenuLink2" 
+            href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            
             <i class="fa fa-bell" aria-hidden="true" style="font-size:20px;"></i> 
-            <span class="badge bg-dash-color-3">9</span></a>
+@php 
+use App\Models\order;
+$value = order::where('noti','=','noti')->get() 
+@endphp
+
+@if($value->count() == 0)
+
+@else
+<span class="badge bg-dash-color-3">{{$value->count()}}</span> 
+@endif
+    
+          </a>
 
 
               <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark"
-               aria-labelledby="navbarDropdownMenuLink2">
+               aria-labelledby="navbarDropdownMenuLink2" style="overflow-y:scroll; height:300px;">
                 
-               
-               <li>
-                  <a class="dropdown-item" href="#">
-                    <div class="d-flex justify-content-between mb-1">
-                        <strong>Task 1</strong><span>40% complete</span></div>
-                    <div class="progress" style="height: 2px">
-                      <div class="progress-bar bg-dash-color-1" role="progressbar" style="width: 40%" 
-                      aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
-                    </div>
-                    </div>
+               @foreach(\App\Models\order::where('noti','=','noti')->get()  as $order)
+        
+                 
+              
+                 <li>
+                  <a class="dropdown-item d-flex align-items-center" href="{{route('one.order',$order->id)}}">
+                    <div style="color:#E95F71;">
+                     <i class="fa fa-check-square-o" aria-hidden="true" style="color:#E95F71; font-size:18px;"></i> 
+                    New order </div>
+                    <div class="ms-3">   <strong class="d-block">{{$order->product}}</strong>
+                    <span class="d-block text-xs"> quantity : {{$order->number}}</span>
+                    <small class="d-block">{{ \Carbon\Carbon::parse($order->updated_at)->diffForHumans() }}</small>
+                  </div>
                   </a>
-                </li>
+                  </li>
+                @endforeach
+
+          
  
              
                 <li>          
-                   <a class="dropdown-item text-center" href="#"> 
-                    <strong>See All Tasks  <i class="fas fa-angle-right ms-1"></i></strong>
+                   <a class="dropdown-item text-center" href="{{route('show.order')}}"> 
+                    <strong>See All Orders </strong>
                   </a>
                 </li>
 
@@ -146,6 +179,14 @@
                <i class="fa fa-product-hunt" aria-hidden="true" style="font-size:25px;color:#E95F71;"></i>
                 &nbsp; &nbsp;
                       <span>Products</span>
+                    </a>
+                    </li>
+
+                    
+              <li class="sidebar-item"><a class="sidebar-link" href="{{route('show.order')}}"> 
+               <i class="fa fa-cube" aria-hidden="true" style="font-size:25px;color:#E95F71;"></i>
+                &nbsp; &nbsp;
+                      <span>Orders</span>
                     </a>
                     </li>
            

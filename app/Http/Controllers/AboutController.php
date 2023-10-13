@@ -16,6 +16,14 @@ class AboutController extends Controller
         return view('dashboard.about.about',compact('Abouts'));
         
     }
+    
+    function show()
+    {
+
+        $Abouts = About::orderBy('id', 'desc')->limit(1)->get();         
+        return view('web.about',compact('Abouts'));
+        
+    }
 
        
     function update(Request $request)

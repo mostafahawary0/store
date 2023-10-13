@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthManager;
+use App\Http\Controllers\homeController;
+use App\Http\Controllers\orderController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\messageController;
+
  
 
 /*
@@ -30,6 +35,28 @@ Route::group(['middleware' => 'auth'], function(){
     })->name('profile');
 });
 
-Route::get('/', function () {
-    return view('web.home');
-})->name('home');
+
+
+//home 
+Route::get('/' , [homeController::class,'showProduct'])->name('home');
+
+//search
+Route::post('/search' , [homeController::class,'search'])->name('search');
+
+//about us
+Route::get('/about-us' , [AboutController::class,'show'])->name('about.us');
+
+//sections
+Route::get('/category/{id}/{title}' , [homeController::class,'showSection'])->name('section');
+
+
+//single page product
+Route::get('/product/{id}/{title}' , [homeController::class,'singleProduct'])->name('single.product');
+Route::post('/product/{id}/{title}' , [orderController::class,'createOrder'])->name('create.order');
+
+
+//contact us
+Route::get('/contact-us' , [messageController::class,'contact'])->name('contact');
+Route::post('/contact-us' , [messageController::class,'send'])->name('send.message');
+ 
+ 
