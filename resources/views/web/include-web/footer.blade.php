@@ -85,7 +85,7 @@ footer {
     <i class="fa fa-facebook"></i></a></li>
 <li><a  href="https://www.youtube.com/channel/UCHJ7xrHB0Hj7mUoP7iUElrw" target="_blank">
     <i class="fa fa-youtube-play"></i></a></li>
-<li><a class="instagram" href="#"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+<li><a class="instagram" href="https://www.instagram.com/kanouzeltabya/"  target="_blank"><i class="fa fa-instagram"></i></a></li>
 <li><a href="https://wa.me/0201011117709"  target="_blank"><i class="fa fa-whatsapp"></i></a></li>
 </ul>
 </div>

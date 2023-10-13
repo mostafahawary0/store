@@ -17,7 +17,7 @@
 <a href="https://wa.me/0201011117709" target="_blank"> <i class="fa fa-whatsapp" style="font-size:20px; color:#000;"></i>  </a>
 &nbsp;
 &nbsp;
-<a href="#" target="_blank"> <i class="fa fa-instagram" style="font-size:20px; color:#000;"></i>  </a>
+<a href="https://www.instagram.com/kanouzeltabya/" target="_blank"> <i class="fa fa-instagram" style="font-size:20px; color:#000;"></i>  </a>
 </div>
 	
  
